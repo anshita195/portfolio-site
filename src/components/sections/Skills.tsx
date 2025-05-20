@@ -56,7 +56,7 @@ export default function Skills() {
               Technical Expertise
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              Here's an overview of my technical skills and proficiency levels in various technologies.
+              Here&apos;s an overview of my technical skills and proficiency levels in various technologies.
             </p>
           </motion.div>
         </div>

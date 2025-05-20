@@ -47,7 +47,7 @@ export default function Projects() {
               Some of my recent work
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              Here are a few projects I've worked on. Each one represents a unique challenge
+              Here are a few projects I&apos;ve worked on. Each one represents a unique challenge
               and learning experience in my journey as a developer.
             </p>
           </motion.div>
