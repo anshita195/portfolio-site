@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { SVGProps } from 'react'
 
 const navigation = [
   { name: 'Home', href: '#hero' },
@@ -17,7 +18,7 @@ const socialLinks = [
   {
     name: 'GitHub',
     href: 'https://github.com/anshita195',
-    icon: (props: any) => (
+    icon: (props: SVGProps<SVGSVGElement>) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
           fillRule="evenodd"
@@ -30,7 +31,7 @@ const socialLinks = [
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/anshita-jain-54157a250/',
-    icon: (props: any) => (
+    icon: (props: SVGProps<SVGSVGElement>) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
           fillRule="evenodd"

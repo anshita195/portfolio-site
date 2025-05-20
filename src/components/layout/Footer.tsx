@@ -1,10 +1,10 @@
-import Link from 'next/link'
+import { SVGProps } from 'react'
 
 const socialLinks = [
   {
     name: 'GitHub',
     href: 'https://github.com/anshita195',
-    icon: (props: any) => (
+    icon: (props: SVGProps<SVGSVGElement>) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
           fillRule="evenodd"
@@ -17,7 +17,7 @@ const socialLinks = [
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/anshita-jain-54157a250/',
-    icon: (props: any) => (
+    icon: (props: SVGProps<SVGSVGElement>) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
           fillRule="evenodd"
