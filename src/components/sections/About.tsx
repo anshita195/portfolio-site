@@ -26,7 +26,7 @@ export default function About() {
               A little bit about myself
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              I'm a full-stack developer with a passion for creating elegant solutions to complex problems.
+              I&apos;m a full-stack developer with a passion for creating elegant solutions to complex problems.
               My journey in software development started with a curiosity about how things work on the web,
               and it has evolved into a professional pursuit of building impactful applications.
             </p>
@@ -45,7 +45,7 @@ export default function About() {
               </dt>
               <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
                 <p className="flex-auto">
-                  I am currently pursuing my degree in Computer Science at IIT Roorkee, where I've been
+                  I am currently pursuing my degree in Computer Science at IIT Roorkee, where I&apos;ve been
                   developing my skills in software development and problem-solving.
                 </p>
               </dd>
@@ -61,7 +61,7 @@ export default function About() {
               </dt>
               <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
                 <p className="flex-auto">
-                  I've worked on various projects ranging from web applications to mobile apps,
+                  I&apos;ve worked on various projects ranging from web applications to mobile apps,
                   always focusing on creating user-friendly interfaces and robust backend systems.
                 </p>
               </dd>

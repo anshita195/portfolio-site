@@ -61,7 +61,7 @@ export default function Contact() {
       } else {
         throw new Error('Failed to send message')
       }
-    } catch (error) {
+    } catch {
       setStatus({
         type: 'error',
         message: 'Failed to send message. Please try again later.',

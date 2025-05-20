@@ -111,10 +111,10 @@ ${message}
         { message: 'Email sent successfully' },
         { status: 200 }
       )
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Brevo error:', error)
-      if (error.response) {
-        console.error('Brevo response:', error.response.body)
+      if (error && typeof error === 'object' && 'response' in error) {
+        console.error('Brevo response:', (error as { response: { body: unknown } }).response.body)
       }
       throw error
     }
