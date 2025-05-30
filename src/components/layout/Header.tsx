@@ -89,17 +89,6 @@ export default function Header() {
               <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>
           ))}
-          <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
-          >
-            <span className="sr-only">Toggle theme</span>
-            {theme === 'dark' ? (
-              <SunIcon className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <MoonIcon className="h-6 w-6" aria-hidden="true" />
-            )}
-          </button>
         </div>
       </nav>
       {/* Mobile menu */}
@@ -147,17 +136,6 @@ export default function Header() {
                       <item.icon className="h-6 w-6" aria-hidden="true" />
                     </a>
                   ))}
-                  <button
-                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                    className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
-                  >
-                    <span className="sr-only">Toggle theme</span>
-                    {theme === 'dark' ? (
-                      <SunIcon className="h-6 w-6" aria-hidden="true" />
-                    ) : (
-                      <MoonIcon className="h-6 w-6" aria-hidden="true" />
-                    )}
-                  </button>
                 </div>
               </div>
             </div>

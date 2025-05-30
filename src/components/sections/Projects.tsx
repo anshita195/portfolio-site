@@ -2,27 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-
-const projects = [
-  {
-    title: 'Project 1',
-    description: 'A brief description of your first project. Explain what technologies you used and what problems it solves.',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    link: '#',
-  },
-  {
-    title: 'Project 2',
-    description: 'Description of your second project. Highlight the key features and your role in development.',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    link: '#',
-  },
-  {
-    title: 'Project 3',
-    description: 'Overview of your third project. Mention any interesting challenges you overcame.',
-    tags: ['React Native', 'Firebase', 'Redux'],
-    link: '#',
-  },
-]
+import { projects } from '@/data/projects'
 
 export default function Projects() {
   const [ref, inView] = useInView({
@@ -52,21 +32,21 @@ export default function Projects() {
             </p>
           </motion.div>
         </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-16 max-w-full overflow-x-auto sm:mt-20 lg:mt-24">
+          <div className="flex gap-x-12 pb-4">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex flex-col"
+                className="flex flex-none flex-col w-80"
               >
                 <dt className="text-base font-semibold leading-7 text-gray-900 dark:text-white">
                   {project.title}
                 </dt>
                 <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
-                  <p className="flex-auto">{project.description}</p>
+                  <p className="flex-auto">{project.oneLiner}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
@@ -79,7 +59,7 @@ export default function Projects() {
                   </div>
                   <p className="mt-6">
                     <a
-                      href={project.link}
+                      href={`/projects/${project.slug}`}
                       className="text-sm font-semibold leading-6 text-indigo-600 dark:text-indigo-400"
                     >
                       Learn more <span aria-hidden="true">→</span>
@@ -88,7 +68,7 @@ export default function Projects() {
                 </dd>
               </motion.div>
             ))}
-          </dl>
+          </div>
         </div>
       </div>
     </section>

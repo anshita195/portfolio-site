@@ -26,9 +26,10 @@ export default function About() {
               A little bit about myself
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              I&apos;m a full-stack developer with a passion for creating elegant solutions to complex problems.
+              {/* I&apos;m a full-stack developer with a passion for creating elegant solutions to complex problems.
               My journey in software development started with a curiosity about how things work on the web,
-              and it has evolved into a professional pursuit of building impactful applications.
+              and it has evolved into a professional pursuit of building impactful applications. */}
+              I’m a third-year Engineering Physics student at IIT Roorkee passionate about AI/ML and full-stack development. I love turning data-driven ideas into elegant, end-to-end applications that solve real problems.
             </p>
           </motion.div>
         </div>
@@ -45,8 +46,11 @@ export default function About() {
               </dt>
               <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
                 <p className="flex-auto">
-                  I am currently pursuing my degree in Computer Science at IIT Roorkee, where I&apos;ve been
-                  developing my skills in software development and problem-solving.
+                  {/* I am currently pursuing my degree in Computer Science at IIT Roorkee, where I&apos;ve been
+                  developing my skills in software development and problem-solving. */}
+                  B.Tech in Engineering Physics, IIT Roorkee (2022–2026)
+                  <br/>
+                  Relevant coursework: Machine Learning, Data Structures & Algorithms, Copmuter Programming
                 </p>
               </dd>
             </motion.div>
@@ -61,8 +65,9 @@ export default function About() {
               </dt>
               <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
                 <p className="flex-auto">
-                  I&apos;ve worked on various projects ranging from web applications to mobile apps,
-                  always focusing on creating user-friendly interfaces and robust backend systems.
+                  {/* I&apos;ve worked on various projects ranging from web applications to mobile apps,
+                  always focusing on creating user-friendly interfaces and robust backend systems. */}
+                  I’ve built projects in Python and Django for ML pipelines, and created React/Next.js front-ends with Node.js/Express and MongoDB. I’ve worked with tools like TensorFlow, HuggingFace, LangChain, and FAISS to integrate AI/ML features into user-focused apps.
                 </p>
               </dd>
             </motion.div>
