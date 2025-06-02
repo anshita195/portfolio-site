@@ -7,13 +7,27 @@ import { ThemeProvider } from "next-themes";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Anshita Jain - Portfolio",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://anshitajain.vercel.app'),
+  title: {
+    default: "Anshita Jain - Portfolio",
+    template: "%s | Anshita Jain's Portfolio"
+  },
   description: "Full-stack developer and software engineer portfolio showcasing projects and skills",
   openGraph: {
     title: "Anshita Jain - Portfolio",
     description: "Full-stack developer and software engineer portfolio showcasing projects and skills",
     type: "website",
     locale: "en_US",
+    siteName: "Anshita Jain's Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Anshita Jain - Portfolio",
+    description: "Full-stack developer and software engineer portfolio showcasing projects and skills",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

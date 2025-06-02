@@ -1,7 +1,35 @@
+import React from 'react';
+import type { Metadata } from 'next';
 import { projects } from '@/data/projects';
 
-export default function ProjectDetails({ params }: { params: { slug: string } }) {
-  const project = projects.find((p) => p.slug === params.slug);
+// Define the exact shape Next.js expects
+interface PageProps {
+  params: { slug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+// Use the same interface for both functions
+export async function generateMetadata(
+  props: PageProps
+): Promise<Metadata> {
+  const project = projects.find((p) => p.slug === props.params.slug);
+  
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+      description: 'The requested project could not be found.',
+    };
+  }
+
+  return {
+    title: `${project.title} - Anshita Jain's Portfolio`,
+    description: project.oneLiner,
+  };
+}
+
+// Make sure to use the exact same interface
+export default function Page(props: PageProps) {
+  const project = projects.find((p) => p.slug === props.params.slug);
 
   if (!project) {
     return <div>Project not found</div>; // Or render a 404 page
