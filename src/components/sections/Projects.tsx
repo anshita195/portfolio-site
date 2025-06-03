@@ -5,21 +5,21 @@ import { useInView } from 'react-intersection-observer'
 
 const projects = [
   {
-    title: 'Project 1',
-    description: 'A brief description of your first project. Explain what technologies you used and what problems it solves.',
-    tags: ['React', 'Node.js', 'MongoDB'],
+    title: 'Crypto Sentiment Analyzer — SDSLabs, IIT Roorkee',
+    description: 'Full-stack platform analyzing real-time crypto sentiment from Reddit.',
+    tags: ['Node.js','Express','MongoDB Atlas','React','Vite','Tailwind CSS','TensorFlow.js','Docker' ],
     link: '#',
   },
   {
-    title: 'Project 2',
-    description: 'Description of your second project. Highlight the key features and your role in development.',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    title: 'Fake News Detector (Makers 23) — IIT Roorkee',
+    description: 'RAG prototype to extract and verify claims from news articles.',
+    tags:['FastAPI', 'React', 'TypeScript', 'Vite', 'Tailwind CSS', 'FAISS', 'OpenAI GPT-3.5 Turbo', 'Sentence Embeddings'],
     link: '#',
   },
   {
-    title: 'Project 3',
-    description: 'Overview of your third project. Mention any interesting challenges you overcame.',
-    tags: ['React Native', 'Firebase', 'Redux'],
+    title: 'Credit Card Behaviour Score Prediction — Finance Club, IIT Roorkee',
+    description: 'Classification model to predict credit card defaults.',
+    tags:  ['Python', 'Pandas', 'Scikit-learn', 'Feature Engineering', 'Classification Models', 'Exploratory Data Analysis'],
     link: '#',
   },
 ]
