@@ -40,64 +40,34 @@ export default function Skills() {
   })
 
   return (
-    <section id="skills" className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-400">
-              Skills
-            </h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-              Technical Expertise
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              Here&apos;s an overview of my technical skills and proficiency levels in various technologies.
-            </p>
-          </motion.div>
+    <section id="skills" className="flex items-center justify-center min-h-[60vh] py-12 sm:py-16">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+        transition={{ duration: 0.8 }}
+        className="w-full max-w-4xl mx-auto rounded-3xl shadow-2xl border border-white/20 p-10 bg-[rgba(30,27,52,0.92)] lux-card text-center animate-lux-fade-in"
+      >
+        <h2 className="text-lg font-semibold leading-7 text-indigo-300 mb-2 tracking-widest uppercase">Skills</h2>
+        <h3 className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight text-white">What I bring to the table</h3>
+        <div className="flex flex-wrap justify-center gap-4 mt-8">
+          {skills.map((group) => (
+            <div key={group.category} className="flex flex-col items-center mb-6">
+              <h4 className="text-indigo-200 text-lg font-bold mb-2">{group.category}</h4>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {group.items.map((skill) => (
+                  <span
+                    key={skill.name}
+                    className="inline-flex items-center rounded-full bg-white/10 border border-indigo-200/20 px-3 py-1 text-xs font-semibold text-white shadow-lux-tag"
+                  >
+                    {skill.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3">
-            {skills.map((skillGroup, groupIndex) => (
-              <motion.div
-                key={skillGroup.category}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
-                className="flex flex-col"
-              >
-                <h3 className="text-lg font-semibold leading-8 text-gray-900 dark:text-white">
-                  {skillGroup.category}
-                </h3>
-                <div className="mt-4 space-y-4">
-                  {skillGroup.items.map((skill) => (
-                    <div key={skill.name}>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                          {skill.name}
-                        </span>
-                        <span className="text-sm text-gray-500 dark:text-gray-400">{skill.level}%</span>
-                      </div>
-                      <div className="mt-2 h-2 w-full rounded-full bg-gray-200 dark:bg-gray-700">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
-                          transition={{ duration: 1, delay: groupIndex * 0.1 }}
-                          className="h-2 rounded-full bg-indigo-600 dark:bg-indigo-400"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
+      </motion.div>
     </section>
   )
 } 

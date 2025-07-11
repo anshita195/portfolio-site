@@ -4,51 +4,35 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative isolate pt-14">
-      <div className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+    <section id="hero" className="flex items-center justify-center min-h-[60vh] pt-32 pb-12 sm:pt-40 sm:pb-16 bg-transparent">
+      <div className="w-full max-w-2xl mx-auto rounded-3xl shadow-xl border border-white/20 p-10 bg-[rgba(30,27,52,0.92)] lux-card text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <h1 className="text-5xl sm:text-6xl font-serif font-extrabold mb-4 tracking-tight text-white">
+            Hi, I&apos;m Anshita Jain
+          </h1>
+          <p className="mt-6 text-xl leading-8 text-white/90 font-light">
+            A passionate full-stack developer crafting beautiful and functional web experiences.<br/>
+            I specialize in building modern web applications with React, Node.js, and cloud technologies.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a
+              href="#contact"
+              className="rounded-full bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lux-tag hover:bg-indigo-500 transition border border-indigo-300/40"
             >
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
-                Hi, I&apos;m Anshita Jain
-              </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                A passionate full-stack developer crafting beautiful and functional web experiences.
-                I specialize in building modern web applications with React, Node.js, and cloud technologies.
-              </p>
-              <div className="mt-10 flex items-center justify-center gap-x-6">
-                <a
-                  href="#contact"
-                  className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Get in touch
-                </a>
-                <a
-                  href="#projects"
-                  className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
-                >
-                  View my work <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </motion.div>
+              Get in touch
+            </a>
+            <a
+              href="#projects"
+              className="rounded-full border border-indigo-300/40 px-6 py-3 text-base font-semibold text-indigo-200 hover:text-white hover:border-white transition bg-white/5 hover:bg-indigo-400/10"
+            >
+              View my work <span aria-hidden="true">→</span>
+            </a>
           </div>
-        </div>
-      </div>
-      <div
-        className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-          }}
-        />
+        </motion.div>
       </div>
     </section>
   )

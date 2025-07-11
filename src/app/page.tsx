@@ -8,9 +8,9 @@ import Footer from '@/components/layout/Footer'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-gray-900">
+    <main className="min-h-screen bg-gradient-to-br from-[#18122B] via-[#393053] to-[#635985]">
       <Header />
-      <div className="container mx-auto px-4 py-8">
+      <div className="flex flex-col py-8">
         <Hero />
         <About />
         <Projects />

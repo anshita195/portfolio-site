@@ -78,119 +78,23 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-400">
-              Contact
-            </h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-              Get in touch
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              Have a question or want to work together? Feel free to reach out!
-            </p>
-          </motion.div>
-        </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20">
-          <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            onSubmit={handleSubmit}
-            className="space-y-6"
-          >
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
-                Name
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-400 sm:text-sm sm:leading-6 bg-white dark:bg-gray-800"
-                />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
-                Email
-              </label>
-              <div className="mt-2">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-400 sm:text-sm sm:leading-6 bg-white dark:bg-gray-800"
-                />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
-                Message
-              </label>
-              <div className="mt-2">
-                <textarea
-                  name="message"
-                  id="message"
-                  rows={4}
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-400 sm:text-sm sm:leading-6 bg-white dark:bg-gray-800"
-                />
-              </div>
-            </div>
-            {/* Honeypot field */}
-            <div className="hidden">
-              <input
-                type="text"
-                name="honeypot"
-                value={formData.honeypot}
-                onChange={handleChange}
-                tabIndex={-1}
-                autoComplete="off"
-              />
-            </div>
-            <div>
-              <button
-                type="submit"
-                className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Send message
-              </button>
-            </div>
-            {status.message && (
-              <div
-                className={`mt-4 rounded-md p-4 ${
-                  status.type === 'success' ? 'bg-green-50 dark:bg-green-900/30' : 'bg-red-50 dark:bg-red-900/30'
-                }`}
-              >
-                <p
-                  className={`text-sm ${
-                    status.type === 'success' ? 'text-green-800 dark:text-green-200' : 'text-red-800 dark:text-red-200'
-                  }`}
-                >
-                  {status.message}
-                </p>
-              </div>
-            )}
-          </motion.form>
-        </div>
-      </div>
+    <section id="contact" className="flex items-center justify-center min-h-[60vh] py-12 sm:py-16">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+        transition={{ duration: 0.8 }}
+        className="w-full max-w-2xl mx-auto rounded-3xl shadow-2xl border border-white/20 p-10 bg-[rgba(30,27,52,0.92)] lux-card text-center animate-lux-fade-in"
+      >
+        <h2 className="text-lg font-semibold leading-7 text-indigo-300 mb-2 tracking-widest uppercase">Contact</h2>
+        <h3 className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight text-white">Let&apos;s connect</h3>
+        <form className="mt-8 space-y-6">
+          <input type="text" placeholder="Your Name" className="w-full rounded-lg bg-white/10 border border-indigo-200/20 px-4 py-3 text-white placeholder-indigo-200 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+          <input type="email" placeholder="Your Email" className="w-full rounded-lg bg-white/10 border border-indigo-200/20 px-4 py-3 text-white placeholder-indigo-200 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+          <textarea placeholder="Your Message" className="w-full rounded-lg bg-white/10 border border-indigo-200/20 px-4 py-3 text-white placeholder-indigo-200 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400" rows={5} />
+          <button type="submit" className="rounded-full bg-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-lux-tag hover:bg-indigo-500 transition border border-indigo-300/40 mt-4">Send Message</button>
+        </form>
+      </motion.div>
     </section>
   )
 } 

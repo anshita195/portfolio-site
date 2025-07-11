@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -45,61 +45,43 @@ const socialLinks = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
+  // Removed theme and setTheme
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+    <header className="fixed inset-x-0 top-0 z-50 bg-[#2a2540]/80 backdrop-blur-md shadow-md">
       <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div className="flex lg:flex-1">
+        <div className="flex items-center gap-x-6 lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="text-xl font-bold">AJ</span>
+            <span className="text-2xl font-extrabold tracking-wide text-white">AJ</span>
           </Link>
-        </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-200"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-6">
           {socialLinks.map((item) => (
             <a
               key={item.name}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+              className="text-indigo-200 hover:text-white transition ml-2"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>
           ))}
-          <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
-          >
-            <span className="sr-only">Toggle theme</span>
-            {theme === 'dark' ? (
-              <SunIcon className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <MoonIcon className="h-6 w-6" aria-hidden="true" />
-            )}
-          </button>
+        </div>
+        <div className="hidden lg:flex lg:gap-x-16">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-lg font-semibold leading-6 text-white hover:text-indigo-300 transition"
+            >
+              {item.name}
+            </Link>
+          ))}
         </div>
       </nav>
       {/* Mobile menu */}
@@ -147,17 +129,6 @@ export default function Header() {
                       <item.icon className="h-6 w-6" aria-hidden="true" />
                     </a>
                   ))}
-                  <button
-                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                    className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
-                  >
-                    <span className="sr-only">Toggle theme</span>
-                    {theme === 'dark' ? (
-                      <SunIcon className="h-6 w-6" aria-hidden="true" />
-                    ) : (
-                      <MoonIcon className="h-6 w-6" aria-hidden="true" />
-                    )}
-                  </button>
                 </div>
               </div>
             </div>
