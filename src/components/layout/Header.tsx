@@ -83,58 +83,62 @@ export default function Header() {
             </Link>
           ))}
         </div>
+        {/* Hamburger for mobile */}
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-indigo-200 hover:text-white"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
       </nav>
-      {/* Mobile menu */}
-      <div className={`lg:hidden ${mobileMenuOpen ? 'fixed inset-0 z-50' : 'hidden'}`}>
-        <div className="fixed inset-0 bg-gray-900/80" aria-hidden="true" />
-        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
+      {/* Mobile menu luxury style */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 bg-[#18122B]/90 backdrop-blur-xl flex flex-col">
+          <div className="flex items-center justify-between p-6">
             <Link href="/" className="-m-1.5 p-1.5">
-              <span className="text-xl font-bold">AJ</span>
+              <span className="text-2xl font-extrabold tracking-wide text-white">AJ</span>
             </Link>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-200"
+              className="-m-2.5 rounded-md p-2.5 text-indigo-200 hover:text-white"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-              <div className="py-6">
-                <div className="flex gap-x-6">
-                  {socialLinks.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
-                    >
-                      <span className="sr-only">{item.name}</span>
-                      <item.icon className="h-6 w-6" aria-hidden="true" />
-                    </a>
-                  ))}
-                </div>
-              </div>
+          <div className="flex flex-col items-center gap-y-8 mt-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-2xl font-semibold text-white hover:text-indigo-300 transition"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <div className="flex gap-x-6 mt-8">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-200 hover:text-white transition"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-7 w-7" aria-hidden="true" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   )
 } 

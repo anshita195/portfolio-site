@@ -12,8 +12,8 @@ export default function Projects() {
 
   return (
     <section id="projects" className="flex items-center justify-center min-h-[60vh] py-12 sm:py-16">
-      <motion.div
-        ref={ref}
+          <motion.div
+            ref={ref}
         initial={{ opacity: 0, y: 40 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
         transition={{ duration: 0.8 }}
@@ -25,40 +25,40 @@ export default function Projects() {
           Here are a few projects I've worked on. Each one represents a unique challenge and learning experience in my journey as a developer.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col bg-white/5 rounded-2xl p-6 shadow-lux-tag border border-indigo-200/10 text-left"
-            >
+              >
               <dt className="text-lg font-bold leading-7 text-white mb-1">
                 {project.title}
                 <span className="block text-xs font-normal text-indigo-200 mt-1">{project.organization} &middot; {project.date}</span>
-              </dt>
+                </dt>
               <dd className="mt-2 flex flex-auto flex-col text-base leading-7 text-white/80">
                 <div className="mt-2 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
                       className="inline-flex items-center rounded-full bg-white/10 border border-indigo-200/20 px-3 py-1 text-xs font-semibold text-white shadow-lux-tag"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <p className="mt-6">
-                  <a
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="mt-6">
+                    <a
                     href={`/projects/${project.slug}`}
                     className="text-sm font-semibold leading-6 text-indigo-300 hover:text-white transition"
-                  >
-                    Learn more <span aria-hidden="true">→</span>
-                  </a>
-                </p>
-              </dd>
-            </motion.div>
-          ))}
+                    >
+                      Learn more <span aria-hidden="true">→</span>
+                    </a>
+                  </p>
+                </dd>
+              </motion.div>
+            ))}
         </div>
       </motion.div>
     </section>
