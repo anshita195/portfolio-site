@@ -52,14 +52,6 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deployment
-
-This project is configured for easy deployment on Vercel:
-
-1. Push your code to GitHub
-2. Import your repository on Vercel
-3. Add your environment variables in the Vercel dashboard
-4. Deploy!
 
 ## Customization
 
