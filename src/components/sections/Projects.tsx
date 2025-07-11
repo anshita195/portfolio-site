@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
+
 const projects = [
   {
     title: 'Association Website',
@@ -146,6 +147,8 @@ const projects = [
     link: '#',
   },
 ]
+=======
+import { projects } from '@/data/projects'
 
 export default function Projects() {
   const [ref, inView] = useInView({
@@ -175,25 +178,29 @@ export default function Projects() {
             </p>
           </motion.div>
         </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-16 max-w-full overflow-x-auto sm:mt-20 lg:mt-24">
+          <div className="flex gap-x-12 pb-4">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex flex-col"
+                className="flex flex-none flex-col w-80"
               >
                 <dt className="text-base font-semibold leading-7 text-gray-900 dark:text-white">
                   {project.title} <span className="block text-xs font-normal text-gray-500 dark:text-gray-400">{project.organization} &middot; {project.date}</span>
                 </dt>
                 <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
+
                   <ul className="list-disc pl-5 space-y-1">
                     {(project.details || []).map((detail, i) => (
                       <li key={i}>{detail}</li>
                     ))}
                   </ul>
+
+                  <p className="flex-auto">{project.oneLiner}</p>
+
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
@@ -206,7 +213,7 @@ export default function Projects() {
                   </div>
                   <p className="mt-6">
                     <a
-                      href={project.link}
+                      href={`/projects/${project.slug}`}
                       className="text-sm font-semibold leading-6 text-indigo-600 dark:text-indigo-400"
                     >
                       Learn more <span aria-hidden="true">→</span>
@@ -215,7 +222,7 @@ export default function Projects() {
                 </dd>
               </motion.div>
             ))}
-          </dl>
+          </div>
         </div>
       </div>
     </section>

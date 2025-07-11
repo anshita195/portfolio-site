@@ -50,7 +50,11 @@ export default function About() {
                   developing my skills in software development and problem-solving. */}
                   B.Tech in Engineering Physics, IIT Roorkee (2022–2026)
                   <br/>
+
                   Relevant coursework: Machine Learning and Deep Learning, Data Structures & Algorithms, Computer Programming
+
+         
+
                 </p>
               </dd>
             </motion.div>
@@ -65,6 +69,7 @@ export default function About() {
               </dt>
               <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
                 <p className="flex-auto">
+
                    {/* I&apos;ve worked on various projects ranging from web applications to mobile apps,
                   always focusing on creating user-friendly interfaces and robust backend systems. */}
                   I’ve built projects in Python and Django for ML pipelines, and created React/Next.js front-ends with Node.js/Express and MongoDB. I’ve worked with tools like TensorFlow, HuggingFace, LangChain, and FAISS to integrate AI/ML features into user-focused apps.
