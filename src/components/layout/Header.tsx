@@ -65,7 +65,7 @@ export default function Header() {
                 <item.icon className="h-6 w-6" aria-hidden="true" />
               </a>
             ))}
-          </div>
+        </div>
         </div>
         <div className="hidden lg:flex lg:gap-x-16">
           {navigation.map((item) => (
@@ -93,38 +93,38 @@ export default function Header() {
       {/* Mobile menu overlay */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 bg-[#18122B]/95 flex flex-col items-center justify-center">
-          <button
-            type="button"
+            <button
+              type="button"
             className="absolute top-6 right-6 text-indigo-200 hover:text-white p-2"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <span className="sr-only">Close menu</span>
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
             <XMarkIcon className="h-8 w-8" aria-hidden="true" />
-          </button>
+            </button>
           <div className="flex flex-col gap-8 items-center">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
                 className="text-2xl font-bold text-white hover:text-indigo-300 transition"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
             <div className="flex gap-x-6 mt-6">
-              {socialLinks.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {socialLinks.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                   className="text-indigo-200 hover:text-white transition"
-                >
-                  <span className="sr-only">{item.name}</span>
+                    >
+                      <span className="sr-only">{item.name}</span>
                   <item.icon className="h-7 w-7" aria-hidden="true" />
-                </a>
-              ))}
+                    </a>
+                  ))}
             </div>
           </div>
         </div>

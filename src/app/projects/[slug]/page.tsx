@@ -46,6 +46,79 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             ))}
           </ul>
         </div>
+        {/* Project Links Section */}
+        {(project.githubFrontend || project.githubBackend || project.github || project.live || project.demo || project.deck) && (
+          <>
+            <div className="border-t border-indigo-200/20 my-8 w-full"></div>
+            <div className="mt-6 flex flex-wrap gap-y-4 gap-x-4 justify-center">
+              {(project.githubFrontend || project.githubBackend) ? (
+                <>
+                  {project.githubFrontend && (
+                    <a
+                      href={project.githubFrontend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2 rounded-full bg-gradient-to-r from-indigo-400 to-indigo-600 text-white font-semibold shadow-lux-tag border border-indigo-200/30 hover:from-indigo-500 hover:to-indigo-700 transition"
+                    >
+                      GitHub (Frontend)
+                    </a>
+                  )}
+                  {project.githubBackend && (
+                    <a
+                      href={project.githubBackend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 text-white font-semibold shadow-lux-tag border border-blue-200/30 hover:from-blue-500 hover:to-blue-700 transition"
+                    >
+                      GitHub (Backend)
+                    </a>
+                  )}
+                </>
+              ) : (
+                project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-2 rounded-full bg-gradient-to-r from-indigo-400 to-indigo-600 text-white font-semibold shadow-lux-tag border border-indigo-200/30 hover:from-indigo-500 hover:to-indigo-700 transition"
+                  >
+                    GitHub Repo
+                  </a>
+                )
+              )}
+              {project.live && project.live !== '#' && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2 rounded-full bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold shadow-lux-tag border border-green-200/30 hover:from-green-500 hover:to-green-700 transition"
+                >
+                  Live Site
+                </a>
+              )}
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2 rounded-full bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold shadow-lux-tag border border-purple-200/30 hover:from-purple-500 hover:to-purple-700 transition"
+                >
+                  Demo
+                </a>
+              )}
+              {project.deck && (
+                <a
+                  href={project.deck}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2 rounded-full bg-gradient-to-r from-pink-400 to-pink-600 text-white font-semibold shadow-lux-tag border border-pink-200/30 hover:from-pink-500 hover:to-pink-700 transition"
+                >
+                  Presentation Deck
+                </a>
+              )}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

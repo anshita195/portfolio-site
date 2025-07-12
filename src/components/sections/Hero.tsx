@@ -15,8 +15,8 @@ export default function Hero() {
             Hi, I&apos;m Anshita Jain
           </h1>
           <p className="mt-6 text-xl leading-8 text-white/90 font-light">
-            A passionate full-stack developer crafting beautiful and functional web experiences.<br/>
-            I specialize in building modern web applications with React, Node.js, and cloud technologies.
+            An aspiring developer and ML enthusiast. <br/>
+            I love turning ideas into end-to-end applications that solve real world problems.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
             <a
