@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
@@ -9,73 +8,6 @@ export default function Contact() {
     triggerOnce: true,
     threshold: 0.1,
   })
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-    honeypot: '', // Hidden field for spam protection
-  })
-
-  const [status, setStatus] = useState({
-    type: '',
-    message: '',
-  })
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    // Check honeypot field
-    if (formData.honeypot) {
-      setStatus({
-        type: 'error',
-        message: 'Invalid form submission',
-      })
-      return
-    }
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
-      })
-
-      if (response.ok) {
-        setStatus({
-          type: 'success',
-          message: 'Message sent successfully!',
-        })
-        setFormData({
-          name: '',
-          email: '',
-          message: '',
-          honeypot: '',
-        })
-      } else {
-        throw new Error('Failed to send message')
-      }
-    } catch {
-      setStatus({
-        type: 'error',
-        message: 'Failed to send message. Please try again later.',
-      })
-    }
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
 
   return (
     <section id="contact" className="flex items-center justify-center min-h-[60vh] py-12 sm:py-16">

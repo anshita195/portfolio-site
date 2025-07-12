@@ -22,7 +22,7 @@ export default function Projects() {
         <h2 className="text-lg font-semibold leading-7 text-indigo-300 mb-2 tracking-widest uppercase">Projects</h2>
         <h3 className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight text-white">Some of my recent work</h3>
         <p className="mb-10 text-lg leading-8 text-white/80 font-light">
-          Here are a few projects I've worked on. Each one represents a unique challenge and learning experience in my journey as a developer.
+          Here are a few projects I&apos;ve worked on. Each one represents a unique challenge and learning experience in my journey as a developer.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
