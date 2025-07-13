@@ -16,7 +16,7 @@ export default function Hero() {
           </h1>
           <p className="mt-6 text-xl leading-8 text-white/90 font-light">
             An aspiring developer and ML enthusiast. <br/>
-            I love turning ideas into end-to-end applications that solve real world problems.
+            I love turning ideas into applications that solve real world problems.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
             <a

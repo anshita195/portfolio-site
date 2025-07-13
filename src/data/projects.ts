@@ -19,7 +19,7 @@ export type Project = {
 export const mlDataScienceProjects: Project[] = [
   {
     title: 'Data-Driven Flight Delay Forecasting',
-    organization: 'SocBiz, IIT Roorkee',
+    organization: 'Society of Business, IIT Roorkee',
     date: 'June 2025',
     details: [
       'Analyzed 178,997 flight records to train a Random Forest classifier (AUC-ROC 0.89; recall 0.98) and multi-output regressor (MAE 0.92–173.16 min).',
@@ -35,7 +35,7 @@ export const mlDataScienceProjects: Project[] = [
   },
   {
     title: 'Classification of Stars using Machine Learning',
-    organization: 'Physics Association, IITR',
+    organization: 'Physics Association, IIT Roorkulse Shape Discrimination',
     date: 'June 2025',
     details: [
       'Developed a Python ML pipeline (Random Forest & XGBoost) that classifies six star types with 99.93% cross‑validated accuracy using engineered features (temperature, luminosity, radius, spectral class).',
@@ -64,7 +64,7 @@ export const mlDataScienceProjects: Project[] = [
     github: 'https://github.com/anshita195/Credit-Card-Behaviour-Score-Prediction'
   },
   {
-    title: 'ML techniques for PSD in Scintillation detectors',
+    title: 'ML techniques for PSD (Pulse Shape Discrimination) in Scintillation detectors',
     organization: 'IIT Roorkee',
     date: 'May 2024 - July 2024',
     details: [
@@ -139,8 +139,8 @@ export const computerVisionProjects: Project[] = [
 // Full-Stack Web Development Projects
 export const webDevProjects: Project[] = [
   {
-    title: 'Association Website',
-    organization: 'Physics Association, IITR',
+    title: 'Physics Association Website',
+    organization: 'Physics Association, IIT Roorkee',
     date: 'May 2025 - Present',
     details: [
       'Developed a full-stack web application for IIT Roorkee Physics Association using React TypeScript frontend with Material-UI components and Node.js/Express backend, featuring responsive design with light/dark theme toggle',
@@ -156,7 +156,7 @@ export const webDevProjects: Project[] = [
   },
   {
     title: 'Reading and Watch-List Dashboard Web App',
-    organization: 'GDSC, IITR',
+    organization: 'GDSC, IIT Roorkee',
     date: 'June 2025 - July 2025',
     details: [
       'Built a Chrome extension and React web app that tracks browsing history for articles/videos and exports data as JSON for import into a Flask backend with SQLAlchemy database',
@@ -176,7 +176,7 @@ export const webDevProjects: Project[] = [
 export const browserExtensionProjects: Project[] = [
   {
     title: 'Chrome Extension for Real-Time Email Tracking',
-    organization: 'GDSC, IITR',
+    organization: 'GDSC, IIT Roorkee',
     date: 'June 2025 - July 2025',
     details: [
       'Built Chrome extension that integrates with Gmail\'s web interface to add email tracking functionality via injected tracking pixels and displays read receipts with blue checkmarks',
@@ -192,7 +192,7 @@ export const browserExtensionProjects: Project[] = [
   },
   {
     title: 'Custom Input-Box Everywhere Extension',
-    organization: 'GDSC, IITR',
+    organization: 'GDSC, IIT Roorkee',
     date: 'June 2025 - July 2025',
     details: [
       'Developed Firefox extension with floating input bar that syncs with text fields and integrates LLM APIs for page summarization and dynamic CSS styling',
@@ -212,7 +212,7 @@ export const browserExtensionProjects: Project[] = [
 export const businessProjects: Project[] = [
   {
     title: 'Analysis and Market Entry Strategy for an OTT Platform',
-    organization: 'SocBiz, IITR',
+    organization: 'Society of Business, IIT Roorkee',
     date: 'Jan 2023',
     details: [
       'A detailed case study on Analyzing the OTT market in India and creating a growth strategy and a pricing model for a company.'
@@ -249,10 +249,10 @@ export const internshipProjects: Project[] = [
     details: [
       'Undergoing a 6-week IBM SkillsBuild internship, completing core modules in data preprocessing, supervised learning, neural network fundamentals, and Generative AI Prompt Engineering',
       'Currently developing an end-to-end employee salary-prediction model in Python, handling data cleaning, feature engineering, model training, and evaluation',
-      'Working with IBM\'s enterprise-grade tools and methodologies for machine learning model development and deployment',
+      // 'Working with IBM\'s enterprise-grade tools and methodologies for machine learning model development and deployment',
       'Learning industry best practices for AI/ML development and gaining hands-on experience with real-world datasets'
     ],
-    tags: ['Data Preprocessing', 'Neural Network Fundamentals', 'Generative AI', 'Prompt Engineering', 'Feature Engineering', 'Python'],
+    tags: ['Data Preprocessing', 'Neural Network Fundamentals', 'Generative AI', 'Prompt Engineering', 'Feature Engineering', 'Supervised Learning'],
     link: '#',
     slug: 'ibm-skillsbuild-internship',
     category: 'Internships & Professional Experience'
