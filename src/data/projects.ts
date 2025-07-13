@@ -46,7 +46,8 @@ export const mlDataScienceProjects: Project[] = [
     link: '#',
     slug: 'star-classification-ml',
     category: 'Machine Learning & Data Science',
-    github: 'https://github.com/anshita195/Classification-of-Stars-using-Machine-Learning'
+    github: 'https://github.com/anshita195/Classification-of-Stars-using-Machine-Learning',
+    live: 'https://starclassification.streamlit.app/'
   },
   {
     title: 'Credit Card Behaviour Score Prediction',
@@ -64,7 +65,7 @@ export const mlDataScienceProjects: Project[] = [
     github: 'https://github.com/anshita195/Credit-Card-Behaviour-Score-Prediction'
   },
   {
-    title: 'ML techniques for PSD (Pulse Shape Discrimination) in Scintillation detectors',
+    title: 'ML techniques for PSD in Scintillation detectors',
     organization: 'IIT Roorkee',
     date: 'May 2024 - July 2024',
     details: [

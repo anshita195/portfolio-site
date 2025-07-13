@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { mlDataScienceProjects, nlpRagProjects, computerVisionProjects, webDevProjects, browserExtensionProjects, businessProjects, internshipProjects } from '@/data/projects'
+import { mlDataScienceProjects, nlpRagProjects, computerVisionProjects, webDevProjects, browserExtensionProjects, businessProjects } from '@/data/projects'
 
 export default function Projects() {
   const [ref, inView] = useInView({
@@ -11,30 +11,7 @@ export default function Projects() {
   })
 
   const projectCategories = [
-    {
-      title: 'Internships & Professional Experience',
-      description: 'Industry experience and professional development opportunities',
-      projects: internshipProjects,
-      color: 'from-indigo-500/20 to-purple-500/20'
-    },
-    {
-      title: 'Machine Learning & Data Science',
-      description: 'Statistical modeling, predictive analytics, and data-driven insights',
-      projects: mlDataScienceProjects,
-      color: 'from-purple-500/20 to-pink-500/20'
-    },
-    {
-      title: 'Natural Language Processing and Retrieval Augmented Generation systems',
-      description: 'Combining NLP and RAG to verify, summarize, and reason real‑world text data.',
-      projects: nlpRagProjects,
-      color: 'from-blue-500/20 to-cyan-500/20'
-    },
-    {
-      title: 'Computer Vision',
-      description: 'Object detection, image processing, and computer vision applications',
-      projects: computerVisionProjects,
-      color: 'from-green-500/20 to-emerald-500/20'
-    },
+
     {
       title: 'Full-Stack Web Development',
       description: 'Complete web applications with frontend and backend development',
@@ -47,6 +24,25 @@ export default function Projects() {
       projects: browserExtensionProjects,
       color: 'from-red-500/20 to-pink-500/20'
     },
+    {
+      title: 'Machine Learning & Data Science',
+      description: 'Statistical modeling, predictive analytics, and data-driven insights',
+      projects: mlDataScienceProjects,
+      color: 'from-purple-500/20 to-pink-500/20'
+    },
+    {
+      title: 'Natural Language Processing and Retrieval Augmented Generation',
+      description: 'Combining NLP and RAG to verify, summarize, and reason real‑world text data.',
+      projects: nlpRagProjects,
+      color: 'from-blue-500/20 to-cyan-500/20'
+    },
+    {
+      title: 'Computer Vision',
+      description: 'Object detection, image processing, and computer vision applications',
+      projects: computerVisionProjects,
+      color: 'from-green-500/20 to-emerald-500/20'
+    },
+    
     {
       title: 'Business & Strategy',
       description: 'Market analysis, business strategy, and case studies',
