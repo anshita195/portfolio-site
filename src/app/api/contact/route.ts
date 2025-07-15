@@ -36,6 +36,17 @@ export async function POST(request: Request) {
       replyTo: email,
     })
 
+    // Send thank you email to the submitter
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
+      to: email,
+      subject: "Thank you for contacting me!",
+      text: `Hi ${name},\n\nThank you for reaching out! I have received your message and will get back to you shortly.\n\nBest regards,\nAnshita`,
+      html: `<p>Hi ${name},</p>
+             <p>Thank you for reaching out! I have received your message and will get back to you shortly.</p>
+             <p>Best regards,<br/>Anshita</p>`,
+    })
+
     return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 })
   } catch (error) {
     console.error('Error sending email:', error)
