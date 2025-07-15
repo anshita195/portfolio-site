@@ -36,7 +36,7 @@ export default function Contact() {
       } else {
         setError(data.error || 'Failed to send message.')
       }
-    } catch (err) {
+    } catch {
       setError('Failed to send message.')
     } finally {
       setLoading(false)
