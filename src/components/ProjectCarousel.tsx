@@ -96,7 +96,7 @@ export default function ProjectCarousel({
                      <div className="relative w-full h-full bg-gradient-to-br from-[#18122B]/90 to-[#393053]/90 backdrop-blur-sm rounded-2xl overflow-hidden">
             {/* Background Image */}
             <div 
-              className="absolute inset-0 bg-cover bg-center opacity-20"
+              className="absolute inset-0 bg-cover bg-center opacity-20 blur-sm"
               style={{ backgroundImage: `url(${projects[currentIndex].image})` }}
             />
             
