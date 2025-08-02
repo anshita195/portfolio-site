@@ -8,9 +8,15 @@ import Skills from '@/components/sections/Skills'
 import Contact from '@/components/sections/Contact'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import ParticleBackground from '@/components/ParticleBackground'
+import CursorTrail from '@/components/CursorTrail'
+import ScrollProgress from '@/components/ScrollProgress'
+
+import ProjectCarousel from '@/components/ProjectCarousel'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { motion } from 'framer-motion'
 
 const navigation = [
   { name: 'Home', href: '#hero' },
@@ -20,8 +26,37 @@ const navigation = [
   { name: 'Contact', href: '#contact' },
 ]
 
+// Sample featured projects for carousel - using your actual projects
+const featuredProjects = [
+  {
+    id: 1,
+    title: "Reading and Watch-List Dashboard Web App",
+    description: "A comprehensive dashboard for managing reading lists and watch lists with modern UI/UX design and interactive features",
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800",
+    tags: ["React", "Dashboard", "Web App", "UI/UX"],
+    link: "#projects"
+  },
+  {
+    id: 2,
+    title: "Fake News Detector with RAG",
+    description: "End-to-end RAG prototype with FastAPI backend and React frontend for claim verification using vector search and GPT-3.5 analysis",
+    image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800",
+    tags: ["RAG", "FastAPI", "React/TypeScript", "OpenAI GPT-3.5"],
+    link: "#projects"
+  },
+  {
+    id: 3,
+    title: "Contextual Bandits",
+    description: "Advanced machine learning implementation of contextual bandits for dynamic decision-making and optimization",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+    tags: ["Machine Learning", "Contextual Bandits", "Python", "Optimization"],
+    link: "#projects"
+  }
+]
+
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -35,12 +70,40 @@ export default function Home() {
     }
   }, [mobileMenuOpen])
 
+  // Loading animation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 2000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#18122B] via-[#393053] to-[#635985] flex items-center justify-center">
+        <div className="text-center">
+          <div className="loading-spinner mx-auto mb-4"></div>
+          <h2 className="text-2xl font-bold text-white mb-2">Anshita Jain</h2>
+          <p className="text-white/60">Loading amazing things...</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#18122B] via-[#393053] to-[#635985]">
+    <main className="min-h-screen bg-gradient-to-br from-[#18122B] via-[#393053] to-[#635985] relative overflow-hidden">
+      {/* Premium Background Effects - keeping original constellation */}
+      <ParticleBackground />
+      
+      {/* Interactive Elements */}
+      <CursorTrail />
+      <ScrollProgress />
+      
       <Header setMobileMenuOpen={setMobileMenuOpen} />
+      
       {/* True fullscreen solid menu overlay, sibling to Header */}
       <aside
-        className={`fixed inset-0 w-full h-full z-[99999] bg-[#18122B] flex flex-col transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed inset-0 w-full h-full z-[99999] bg-[#18122B] flex flex-col transition-transform duration-300 backdrop-blur-md ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         aria-label="Mobile menu"
         tabIndex={mobileMenuOpen ? 0 : -1}
         style={{ pointerEvents: mobileMenuOpen ? 'auto' : 'none' }}
@@ -49,7 +112,7 @@ export default function Home() {
           <span className="text-2xl font-extrabold tracking-wide text-white">Menu</span>
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-white hover:text-indigo-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            className="inline-flex items-center justify-center rounded-md p-2 text-white hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-all duration-300"
             aria-label="Close main menu"
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -57,24 +120,62 @@ export default function Home() {
           </button>
         </div>
         <nav className="flex flex-col gap-y-6 p-6 flex-1">
-          {navigation.map((item) => (
+          {navigation.map((item, index) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-xl font-semibold text-white hover:text-indigo-300 transition text-left"
+              className="text-xl font-semibold text-white hover:text-purple-300 transition-all duration-300 text-left hover:translate-x-2"
               onClick={() => setMobileMenuOpen(false)}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {item.name}
             </Link>
           ))}
         </nav>
       </aside>
-      <div className="flex flex-col py-8">
+      
+      <div className="flex flex-col relative z-10">
+        {/* Hero Section */}
         <Hero />
+        
+        {/* About Section */}
         <About />
+        
+        {/* Experience Section */}
         <Experience />
+        
+        {/* Featured Projects Carousel */}
+        <section className="py-20 relative">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-lg font-semibold leading-7 text-purple-300 mb-2 tracking-widest uppercase">
+                Recent Work
+              </h2>
+              <h3 className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight text-white">
+                Top Projects
+              </h3>
+              <p className="text-lg leading-8 text-white/80 font-light max-w-3xl mx-auto">
+                Explore some of my most impactful projects
+              </p>
+            </motion.div>
+            
+            <ProjectCarousel projects={featuredProjects} />
+          </div>
+        </section>
+        
+        {/* Projects Section */}
         <Projects />
+        
+        {/* Skills Section */}
         <Skills />
+        
+        {/* Contact Section */}
         <Contact />
       </div>
       <Footer />

@@ -1,125 +1,193 @@
-import { notFound } from 'next/navigation';
-import { projects } from '@/data/projects';
-import Link from 'next/link';
+'use client'
 
-export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+import { motion } from 'framer-motion'
+import { projects } from '@/data/projects'
+import { notFound } from 'next/navigation'
+import YouTubeEmbed from '@/components/YouTubeEmbed'
+import Link from 'next/link'
+import { ArrowLeftIcon, ArrowTopRightOnSquareIcon, PlayIcon } from '@heroicons/react/24/outline'
+
+interface ProjectPageProps {
+  params: {
+    slug: string
+  }
+}
+
+export default function ProjectPage({ params }: ProjectPageProps) {
+  const project = projects.find(p => p.slug === params.slug)
 
   if (!project) {
-    notFound();
-    return null;
+    notFound()
   }
 
+  // Extract YouTube video ID from demo URL
+  const getYouTubeVideoId = (url: string) => {
+    if (!url) return null
+    const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)
+    return match ? match[1] : null
+  }
+
+  const videoId = project.demo ? getYouTubeVideoId(project.demo) : null
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#18122B] via-[#393053] to-[#635985] px-4 py-12 font-sans">
-      <div className="w-full max-w-2xl rounded-3xl shadow-2xl border border-white/20 p-10 animate-lux-fade-in bg-[rgba(30,27,52,0.92)] lux-card">
-        <Link href="/" className="inline-block mb-8 px-4 py-2 border border-indigo-300/40 rounded-full text-indigo-200 hover:text-white hover:border-white transition font-semibold text-sm bg-white/5 hover:bg-indigo-400/10">
-          ← Back to Home
-        </Link>
-        <h1 className="text-5xl sm:text-6xl font-serif font-extrabold mb-4 tracking-tight text-white">
-          {project.title}
-        </h1>
-        <div className="text-base sm:text-lg text-white mb-8 font-medium flex flex-wrap items-center gap-3">
-          <span className="inline-block px-4 py-1 rounded-full bg-white/10 border border-indigo-200/30 text-white font-semibold shadow-lux-tag">
-            {project.organization}
-          </span>
-          <span className="text-indigo-200">•</span>
-          <span className="inline-block px-4 py-1 rounded-full bg-indigo-400/20 border border-indigo-200/30 text-white font-semibold shadow-lux-tag">
-            {project.date}
-          </span>
-        </div>
-        <div className="flex flex-wrap gap-3 mb-10">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="inline-flex items-center rounded-full bg-white/10 border border-indigo-200/20 px-4 py-1 text-xs font-semibold text-white shadow-lux-tag"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <div className="prose dark:prose-invert prose-lg max-w-none text-white">
-          <ul className="list-disc pl-6 space-y-6">
-            {project.details.map((detail, i) => (
-              <li key={i} className="leading-relaxed text-lg font-light">{detail}</li>
-            ))}
-          </ul>
-        </div>
-        {/* Project Links Section */}
-        {(project.githubFrontend || project.githubBackend || project.github || project.live || project.demo || project.deck) && (
-          <>
-            <div className="border-t border-indigo-200/20 my-8 w-full"></div>
-            <div className="mt-6 flex flex-wrap gap-y-4 gap-x-4 justify-center">
-              {(project.githubFrontend || project.githubBackend) ? (
-                <>
-                  {project.githubFrontend && (
-                    <a
-                      href={project.githubFrontend}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-5 py-2 rounded-full bg-gradient-to-r from-indigo-400 to-indigo-600 text-white font-semibold shadow-lux-tag border border-indigo-200/30 hover:from-indigo-500 hover:to-indigo-700 transition"
-                    >
-                      GitHub (Frontend)
-                    </a>
-                  )}
-                  {project.githubBackend && (
-                    <a
-                      href={project.githubBackend}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-5 py-2 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 text-white font-semibold shadow-lux-tag border border-blue-200/30 hover:from-blue-500 hover:to-blue-700 transition"
-                    >
-                      GitHub (Backend)
-                    </a>
-                  )}
-                </>
-              ) : (
-                project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-5 py-2 rounded-full bg-gradient-to-r from-indigo-400 to-indigo-600 text-white font-semibold shadow-lux-tag border border-indigo-200/30 hover:from-indigo-500 hover:to-indigo-700 transition"
-                  >
-                    GitHub Repo
-                  </a>
-                )
+    <div className="min-h-screen bg-gradient-to-br from-[#18122B] via-[#393053] to-[#635985] py-20">
+      <div className="max-w-4xl mx-auto px-4">
+        {/* Back Button */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
+        >
+          <Link
+            href="/#projects"
+            className="inline-flex items-center text-purple-300 hover:text-white transition-colors duration-300"
+          >
+            <ArrowLeftIcon className="w-5 h-5 mr-2" />
+            Back to Projects
+          </Link>
+        </motion.div>
+
+        {/* Project Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-12"
+        >
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              {project.title}
+            </h1>
+            <div className="flex flex-wrap items-center gap-4 text-white/80 mb-6">
+              <span className="font-semibold">{project.organization}</span>
+              <span>•</span>
+              <span>{project.date}</span>
+              <span>•</span>
+              <span className="px-3 py-1 bg-indigo-500/20 rounded-full text-sm">
+                {project.category}
+              </span>
+            </div>
+            
+            {/* Project Tags */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.tags.map((tag, index) => (
+                <motion.span
+                  key={tag}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className="px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-medium"
+                >
+                  {tag}
+                </motion.span>
+              ))}
+            </div>
+
+            {/* Project Links */}
+            <div className="flex flex-wrap gap-4">
+              {project.github && (
+                <motion.a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.2 }}
+                  className="inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors duration-300"
+                >
+                  <ArrowTopRightOnSquareIcon className="w-4 h-4 mr-2" />
+                  View Code
+                </motion.a>
               )}
-              {project.live && project.live !== '#' && (
-                <a
+              {project.live && (
+                <motion.a
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2 rounded-full bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold shadow-lux-tag border border-green-200/30 hover:from-green-500 hover:to-green-700 transition"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.3 }}
+                  className="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-300"
                 >
-                  Live Site
-                </a>
+                  <ArrowTopRightOnSquareIcon className="w-4 h-4 mr-2" />
+                  Live Demo
+                </motion.a>
               )}
               {project.demo && (
-                <a
+                <motion.a
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2 rounded-full bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold shadow-lux-tag border border-purple-200/30 hover:from-purple-500 hover:to-purple-700 transition"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.4 }}
+                  className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-300"
                 >
-                  Demo
-                </a>
+                  <PlayIcon className="w-4 h-4 mr-2" />
+                  Watch Demo
+                </motion.a>
               )}
               {project.deck && (
-                <a
+                <motion.a
                   href={project.deck}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2 rounded-full bg-gradient-to-r from-pink-400 to-pink-600 text-white font-semibold shadow-lux-tag border border-pink-200/30 hover:from-pink-500 hover:to-pink-700 transition"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.5 }}
+                  className="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-300"
                 >
-                  Presentation Deck
-                </a>
+                  <ArrowTopRightOnSquareIcon className="w-4 h-4 mr-2" />
+                  View Presentation
+                </motion.a>
               )}
             </div>
-          </>
+          </div>
+        </motion.div>
+
+        {/* Project Demo Video */}
+        {videoId && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-12"
+          >
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+              <h2 className="text-2xl font-bold text-white mb-6">Project Demo</h2>
+              <YouTubeEmbed 
+                videoId={videoId} 
+                title={`${project.title} Demo`}
+                className="w-full"
+              />
+            </div>
+          </motion.div>
         )}
+
+        {/* Project Details */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+        >
+          <h2 className="text-2xl font-bold text-white mb-6">Project Details</h2>
+          <div className="space-y-4">
+            {project.details.map((detail, index) => (
+              <motion.p
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                className="text-white/90 leading-relaxed"
+              >
+                {detail}
+              </motion.p>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
-  );
+  )
 } 

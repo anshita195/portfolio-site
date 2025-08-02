@@ -4,6 +4,7 @@ import { Dispatch, SetStateAction } from 'react'
 import Link from 'next/link'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import { SVGProps } from 'react'
+import { motion } from 'framer-motion'
 
 const navigation = [
   { name: 'Home', href: '#hero' },
@@ -44,50 +45,90 @@ const socialLinks = [
 
 export default function Header({ setMobileMenuOpen }: { setMobileMenuOpen: Dispatch<SetStateAction<boolean>> }) {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-[#2a2540]/80 backdrop-blur-md shadow-md">
+    <motion.header 
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="fixed inset-x-0 top-0 z-50 bg-[#2a2540]/80 backdrop-blur-md shadow-premium border-b border-white/10"
+    >
       <nav className="flex items-center justify-between p-4 lg:px-8" aria-label="Global">
-        <div className="flex items-center gap-x-4 lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
-            <span className="text-2xl font-extrabold tracking-wide text-white">AJ</span>
+        <motion.div 
+          className="flex items-center gap-x-4 lg:flex-1"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <Link href="/" className="-m-1.5 p-1.5 group">
+            <motion.span 
+              className="text-2xl font-extrabold tracking-wide text-white group-hover:text-purple-300 transition-colors duration-300"
+              whileHover={{ scale: 1.1 }}
+            >
+              AJ
+            </motion.span>
           </Link>
           <div className="flex gap-x-3">
-            {socialLinks.map((item) => (
-              <a
+            {socialLinks.map((item, index) => (
+              <motion.a
                 key={item.name}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-indigo-200 hover:text-white transition ml-2"
+                className="text-purple-200 hover:text-white transition-all duration-300 ml-2 hover:scale-110"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                whileHover={{ y: -2 }}
               >
                 <span className="sr-only">{item.name}</span>
                 <item.icon className="h-6 w-6" aria-hidden="true" />
-              </a>
+              </motion.a>
             ))}
           </div>
-        </div>
-        <div className="hidden lg:flex lg:gap-x-16">
-          {navigation.map((item) => (
-            <Link
+        </motion.div>
+        
+        <motion.div 
+          className="hidden lg:flex lg:gap-x-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          {navigation.map((item, index) => (
+            <motion.div
               key={item.name}
-              href={item.href}
-              className="text-lg font-semibold leading-6 text-white hover:text-indigo-300 transition"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
             >
-              {item.name}
-            </Link>
+              <Link
+                href={item.href}
+                className="text-lg font-semibold leading-6 text-white hover:text-purple-300 transition-all duration-300 relative group"
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-300 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </motion.div>
           ))}
-        </div>
-        {/* Hamburger for mobile */}
-        <div className="flex lg:hidden">
-          <button
+        </motion.div>
+        
+        {/* Mobile Menu Button */}
+        <motion.div 
+          className="flex lg:hidden"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <motion.button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            className="inline-flex items-center justify-center rounded-md p-2 text-purple-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-all duration-300"
             aria-label="Open main menu"
             onClick={() => setMobileMenuOpen(true)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
             <Bars3Icon className="h-8 w-8" aria-hidden="true" />
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </nav>
-    </header>
+    </motion.header>
   )
 } 
