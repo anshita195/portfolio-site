@@ -168,7 +168,7 @@ export const webDevProjects: Project[] = [
     link: '#',
     slug: 'reading-watchlist-dashboard',
     category: 'Full-Stack Web Development',
-    github: 'https://github.com/anshita195/share_reading_watch_lists',
+    github: 'https://github.com/anshita195/share_reading_watch_lists_webapp',
     demo: 'https://youtu.be/CkFv9XCG7js'
   }
 ];
@@ -204,7 +204,7 @@ export const browserExtensionProjects: Project[] = [
     link: '#',
     slug: 'input-box-everywhere',
     category: 'Browser Extension Development',
-    github: 'https://github.com/anshita195/custom-input-box',
+    github: 'https://github.com/anshita195/custom-input-box-extension',
     demo: 'https://youtu.be/2EhI-tweP4k'
   }
 ];
