@@ -13,6 +13,7 @@ import CursorTrail from '@/components/CursorTrail'
 import ScrollProgress from '@/components/ScrollProgress'
 
 import ProjectCarousel from '@/components/ProjectCarousel'
+import InteractiveBackground from '@/components/InteractiveBackground'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { XMarkIcon } from '@heroicons/react/24/outline'
@@ -94,6 +95,7 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-[#18122B] via-[#393053] to-[#635985] relative overflow-hidden">
       {/* Premium Background Effects - keeping original constellation */}
       <ParticleBackground />
+      <InteractiveBackground />
       
       {/* Interactive Elements */}
       <CursorTrail />

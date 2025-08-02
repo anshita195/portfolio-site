@@ -18,14 +18,31 @@ export default function About() {
         transition={{ duration: 0.8 }}
         className="w-full max-w-3xl mx-auto rounded-3xl shadow-2xl border border-white/20 p-10 bg-[rgba(30,27,52,0.92)] lux-card text-center animate-lux-fade-in"
       >
-        <h2 className="text-lg font-semibold leading-7 text-purple-300 mb-2 tracking-widest uppercase">About Me</h2>
-        <h3 className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight text-white">
-          A little bit about myself
-        </h3>
-        <p className="mb-10 text-xl leading-8 text-white/90 font-light">
-          I’m a Final year Engineering student at IIT Roorkee. <br></br>
-          I make web applications and enhance them with AI techniques like LLM prompt engineering.
-        </p>
+                 <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+           transition={{ duration: 0.8, delay: 0.2 }}
+         >
+           <h2 className="text-lg font-semibold leading-7 text-purple-300 mb-2 tracking-widest uppercase">
+             ABOUT ME
+           </h2>
+         </motion.div>
+        
+                 <h3 className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+           A little bit about myself
+         </h3>
+        
+                 <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+           transition={{ duration: 0.8, delay: 0.6 }}
+           className="mb-10"
+         >
+           <p className="text-xl leading-8 text-white/90 font-light">
+             I&apos;m a Final Year student at IIT Roorkee. I make web applications and enhance them with AI techniques like LLM prompt engineering.
+           </p>
+         </motion.div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           <div>
             <h4 className="text-xl font-bold text-purple-300 mb-4">Education</h4>

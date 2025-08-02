@@ -1,9 +1,11 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { useState } from 'react'
 import { mlDataScienceProjects, nlpRagProjects, computerVisionProjects, webDevProjects, browserExtensionProjects, businessProjects } from '@/data/projects'
+import Floating3DCard from '@/components/Floating3DCard'
+import MagneticCursor from '@/components/MagneticCursor'
+import TextReveal from '@/components/TextReveal'
 
 export default function Projects() {
   const [ref, inView] = useInView({
@@ -90,10 +92,16 @@ export default function Projects() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h2 className="text-lg font-semibold leading-7 text-purple-300 mb-2 tracking-widest uppercase">Projects</h2>
-          <h3 className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight text-white">
-            Some of my recent work
-          </h3>
+          <TextReveal 
+            text="PROJECTS" 
+            className="text-lg font-semibold leading-7 text-purple-300 mb-2 tracking-widest uppercase"
+            staggerDelay={0.05}
+          />
+          <TextReveal 
+            text="Some of my recent work" 
+            className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight text-white"
+            staggerDelay={0.03}
+          />
           <p className="mb-12 text-lg leading-8 text-white/80 font-light max-w-3xl mx-auto">
             Here are my projects organized by domain expertise. Each category represents a different aspect of my technical and analytical skills.
           </p>
@@ -110,16 +118,17 @@ export default function Projects() {
               transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
               className="text-left"
             >
-              <motion.div 
-                className={`mb-8 p-6 rounded-2xl bg-gradient-to-r ${category.color} border border-white/10 backdrop-blur-sm hover-3d relative overflow-hidden group`}
-                whileHover={{ 
-                  scale: 1.02, 
-                  y: -5,
-                  transition: { duration: 0.3 }
-                }}
+                             <Floating3DCard intensity={10} floatingIntensity={5}>
+                 <motion.div 
+                   className={`mb-8 p-6 rounded-2xl bg-gradient-to-r ${category.color} border border-white/10 backdrop-blur-sm hover-3d relative overflow-hidden group glass-morphism-hover`}
+                   whileHover={{ 
+                     scale: 1.02, 
+                     y: -5,
+                     transition: { duration: 0.3 }
+                   }}
 
-                transition={{ duration: 0.3 }}
-              >
+                   transition={{ duration: 0.3 }}
+                 >
                 {/* Animated background gradient */}
                 <motion.div
                   className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
@@ -159,11 +168,12 @@ export default function Projects() {
                   </div>
                 </div>
               </motion.div>
+            </Floating3DCard>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {category.projects.map((project, index) => (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {category.projects.map((project, index) => (
+                <MagneticCursor key={project.title} strength={0.2}>
                   <motion.div
-                    key={project.title}
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.5, delay: (categoryIndex * 0.2) + (index * 0.1) }}
@@ -173,7 +183,7 @@ export default function Projects() {
                       rotateX: 5,
                       rotateY: 5
                     }}
-                    className="group flex flex-col bg-white/5 rounded-2xl p-6 shadow-lux-tag border border-purple-200/10 text-left hover:bg-white/10 transition-all duration-500 hover-3d backdrop-blur-sm relative overflow-hidden"
+                    className="group flex flex-col bg-white/5 rounded-2xl p-6 shadow-lux-tag border border-purple-200/10 text-left hover:bg-white/10 transition-all duration-500 hover-3d backdrop-blur-sm relative overflow-hidden glass-morphism-hover"
                   >
                     {/* Floating particles effect */}
                     <motion.div
@@ -237,8 +247,9 @@ export default function Projects() {
                       </dd>
                     </div>
                   </motion.div>
-                ))}
-              </div>
+                </MagneticCursor>
+              ))}
+            </div>
             </motion.div>
           ))}
         </div>

@@ -126,7 +126,7 @@ export default function ProjectCarousel({
                 transition={{ delay: 0.6 }}
                 className="flex flex-wrap gap-3 justify-center mb-8"
               >
-                {projects[currentIndex].tags.map((tag, index) => (
+                {projects[currentIndex].tags.map((tag) => (
                   <span
                     key={tag}
                     className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-medium"
