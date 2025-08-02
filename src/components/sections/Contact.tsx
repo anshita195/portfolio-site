@@ -52,7 +52,7 @@ export default function Contact() {
         transition={{ duration: 0.8 }}
         className="w-full max-w-2xl mx-auto rounded-3xl shadow-2xl border border-white/20 p-10 bg-[rgba(30,27,52,0.92)] lux-card text-center animate-lux-fade-in"
       >
-        <h2 className="text-lg font-semibold leading-7 text-indigo-300 mb-2 tracking-widest uppercase">Contact</h2>
+        <h2 className="text-lg font-semibold leading-7 text-purple-300 mb-2 tracking-widest uppercase">Contact</h2>
         <h3 className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight text-white">Let&apos;s connect</h3>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input
@@ -81,7 +81,7 @@ export default function Contact() {
           />
           <button
             type="submit"
-            className="rounded-full bg-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-lux-tag hover:bg-indigo-500 transition border border-indigo-300/40 mt-4"
+            className="rounded-full bg-purple-600 px-8 py-3 text-base font-semibold text-white shadow-lux-tag hover:bg-purple-500 transition border border-purple-300/40 mt-4"
             disabled={loading}
           >
             {loading ? 'Sending...' : 'Send Message'}

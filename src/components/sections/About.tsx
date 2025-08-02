@@ -28,7 +28,7 @@ export default function About() {
            </h2>
          </motion.div>
         
-                 <h3 className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+                 <h3 className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight text-white">
            A little bit about myself
          </h3>
         

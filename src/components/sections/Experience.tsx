@@ -20,7 +20,7 @@ export default function Experience() {
         transition={{ duration: 0.8 }}
         className="w-full max-w-5xl mx-auto rounded-3xl shadow-2xl border border-white/20 p-10 bg-[rgba(30,27,52,0.92)] lux-card text-center animate-lux-fade-in"
       >
-        <h2 className="text-lg font-semibold leading-7 text-indigo-300 mb-2 tracking-widest uppercase">Experience</h2>
+        <h2 className="text-lg font-semibold leading-7 text-purple-300 mb-2 tracking-widest uppercase">Experience</h2>
         <h3 className="text-4xl sm:text-5xl font-serif font-extrabold mb-6 tracking-tight text-white">Internships</h3>
         <p className="mb-12 text-lg leading-8 text-white/80 font-light">
           Here are some of my recent internships and professional experiences.
@@ -36,7 +36,7 @@ export default function Experience() {
             >
               <dt className="text-lg font-bold leading-7 text-white mb-1">
                 {exp.title}
-                <span className="block text-xs font-normal text-indigo-200 mt-1">{exp.organization} &middot; {exp.date}</span>
+                <span className="block text-xs font-normal text-purple-200 mt-1">{exp.organization} &middot; {exp.date}</span>
               </dt>
               <dd className="mt-2 flex flex-auto flex-col text-base leading-7 text-white/80">
                 <div className="mt-2 flex flex-wrap gap-2">
@@ -52,7 +52,7 @@ export default function Experience() {
                 <p className="mt-6">
                   <Link
                     href={`/experience/${exp.slug}`}
-                    className="text-sm font-semibold leading-6 text-indigo-300 hover:text-white transition"
+                    className="text-sm font-semibold leading-6 text-purple-300 hover:text-white transition"
                   >
                     Learn more <span aria-hidden="true">→</span>
                   </Link>

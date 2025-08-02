@@ -65,7 +65,7 @@ export default function Hero() {
 
           {/* Main name */}
           <div className="mb-6">
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white">
               Anshita Jain
             </h1>
           </div>
@@ -81,7 +81,7 @@ export default function Hero() {
           {/* Description */}
           <div className="mb-12 max-w-3xl mx-auto">
             <p className="text-xl sm:text-2xl leading-8 text-white/90 font-light">
-              An aspiring developer and ML enthusiast. I love turning ideas into applications that solve real world problems.
+              I love turning ideas into applications that solve real world problems.
             </p>
           </div>
 

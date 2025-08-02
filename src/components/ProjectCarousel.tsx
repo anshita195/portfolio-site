@@ -93,7 +93,7 @@ export default function ProjectCarousel({
           }}
           className="absolute w-full h-full"
         >
-          <div className="relative w-full h-full bg-gradient-to-br from-indigo-900/90 to-purple-900/90 backdrop-blur-sm rounded-2xl overflow-hidden">
+                     <div className="relative w-full h-full bg-gradient-to-br from-[#18122B]/90 to-[#393053]/90 backdrop-blur-sm rounded-2xl overflow-hidden">
             {/* Background Image */}
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -143,7 +143,7 @@ export default function ProjectCarousel({
                 transition={{ delay: 0.8 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-full hover:shadow-2xl transition-all duration-300"
+                                 className="px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-full hover:shadow-2xl transition-all duration-300"
               >
                 View Project
               </motion.a>
