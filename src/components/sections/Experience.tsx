@@ -32,7 +32,7 @@ export default function Experience() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="flex flex-col bg-white/5 rounded-2xl p-6 shadow-lux-tag border border-indigo-200/10 text-left hover:bg-white/10 transition-all duration-300"
+                             className="flex flex-col bg-white/5 rounded-2xl p-6 shadow-lux-tag border border-purple-200/10 text-left hover:bg-white/10 transition-all duration-300"
             >
               <dt className="text-lg font-bold leading-7 text-white mb-1">
                 {exp.title}
@@ -43,7 +43,7 @@ export default function Experience() {
                   {exp.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center rounded-full bg-white/10 border border-indigo-200/20 px-3 py-1 text-xs font-semibold text-white shadow-lux-tag"
+                                             className="inline-flex items-center rounded-full bg-white/10 border border-purple-200/20 px-3 py-1 text-xs font-semibold text-white shadow-lux-tag"
                     >
                       {tag}
                     </span>

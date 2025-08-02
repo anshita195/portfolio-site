@@ -18,6 +18,21 @@ export type Project = {
 // Machine Learning & Data Science Projects
 export const mlDataScienceProjects: Project[] = [
   {
+    title: 'Contextual Bandits for E-commerce Markdown Pricing',
+    organization: 'IIT Roorkee',
+    date: 'July 2025',
+    details: [
+      'Developed contextual bandit system using LinUCB algorithm with linear models, processing 648K+ transactions across two datasets, achieving 19.4% (UCI) and 21.7% (Olist) profit improvements with proper statistical evaluation',
+      'Engineered robust ML pipeline including feature engineering (product encoding, temporal features, payment data), exploration/exploitation optimization, and production deployment considerations for desktop-scale deployment',
+      'Applied advanced ML concepts including contextual decision-making, uncertainty quantification, and business value optimization, demonstrating ability to implement complex algorithms with real-world constraints and measurable business impact'
+    ],
+    tags: ['Contextual Bandits', 'LinUCB Algorithm', 'Linear Models', 'Feature Engineering', 'Exploration/Exploitation', 'Business Value Optimization', 'Python'],
+    link: '#',
+    slug: 'contextual-bandits-ecommerce',
+    category: 'Machine Learning & Data Science',
+    github: 'https://github.com/anshita195/contextual-bandits-pricing-optimization'
+  },
+  {
     title: 'Data-Driven Flight Delay Forecasting',
     organization: 'Society of Business, IIT Roorkee',
     date: 'June 2025',
@@ -249,11 +264,12 @@ export const internshipProjects: Project[] = [
     date: 'June 2025 - Present',
     details: [
       'Undergoing a 6-week IBM SkillsBuild internship, completing core modules in data preprocessing, supervised learning, neural network fundamentals, and Generative AI Prompt Engineering',
-      'Currently developing an end-to-end employee salary-prediction model in Python, handling data cleaning, feature engineering, model training, and evaluation',
+      // 'Currently developing an end-to-end employee salary-prediction model in Python, handling data cleaning, feature engineering, model training, and evaluation',
+      'Built an end-to-end employee salary-prediction pipeline in Python with 87% accuracy, handling data cleaning, feature engineering, model training, and evaluation and deployed using Flask and Streamlit.',
       // 'Working with IBM\'s enterprise-grade tools and methodologies for machine learning model development and deployment',
       'Learning industry best practices for AI/ML development and gaining hands-on experience with real-world datasets'
     ],
-    tags: ['Data Preprocessing', 'Neural Network Fundamentals', 'Generative AI', 'Prompt Engineering', 'Feature Engineering', 'Supervised Learning'],
+    tags: ['Data Preprocessing', 'Neural Network Fundamentals', 'Generative AI', 'Prompt Engineering', 'Feature Engineering', 'Supervised Learning', 'CatBoost'],
     link: '#',
     slug: 'ibm-skillsbuild-internship',
     category: 'Internships & Professional Experience'

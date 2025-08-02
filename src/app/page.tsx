@@ -32,26 +32,26 @@ const featuredProjects = [
   {
     id: 1,
     title: "Reading and Watch-List Dashboard Web App",
-    description: "A comprehensive dashboard for managing reading lists and watch lists with modern UI/UX design and interactive features",
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800",
-    tags: ["React", "Dashboard", "Web App", "UI/UX"],
-    link: "#projects"
+    description: "Built a Chrome extension and React web app that tracks browsing history for articles/videos and exports data as JSON for import into a Flask backend with SQLAlchemy database",
+    image: "/watchlist.png",
+    tags: ["Chrome Extension", "Flask Backend", "Local LLM Inference", "React Visualization"],
+    link: "/projects/reading-watchlist-dashboard"
   },
   {
     id: 2,
     title: "Fake News Detector with RAG",
-    description: "End-to-end RAG prototype with FastAPI backend and React frontend for claim verification using vector search and GPT-3.5 analysis",
-    image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800",
+    description: "End-to-end RAG prototype with FastAPI backend and React/TypeScript frontend for claim verification using vector search and GPT-3.5 analysis",
+    image: "/RAG.png",
     tags: ["RAG", "FastAPI", "React/TypeScript", "OpenAI GPT-3.5"],
-    link: "#projects"
+    link: "/projects/fake-news-detector"
   },
   {
     id: 3,
-    title: "Contextual Bandits",
-    description: "Advanced machine learning implementation of contextual bandits for dynamic decision-making and optimization",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
-    tags: ["Machine Learning", "Contextual Bandits", "Python", "Optimization"],
-    link: "#projects"
+    title: "Contextual Bandits for E-commerce Markdown Pricing",
+    description: "Developed contextual bandit system using LinUCB algorithm with linear models, processing 648K+ transactions across two datasets, achieving 19.4% (UCI) and 21.7% (Olist) profit improvements with proper statistical evaluation",
+    image: "/bandit.png",
+    tags: ["Contextual Bandits", "LinUCB Algorithm", "Linear Models", "Business Value Optimization"],
+    link: "/projects/contextual-bandits-ecommerce"
   }
 ]
 

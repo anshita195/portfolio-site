@@ -58,7 +58,7 @@ export default function Contact() {
           <input
             type="text"
             placeholder="Your Name"
-            className="w-full rounded-lg bg-white/10 border border-indigo-200/20 px-4 py-3 text-white placeholder-indigo-200 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="w-full rounded-lg bg-white/10 border border-purple-200/20 px-4 py-3 text-white placeholder-purple-200 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-400"
             value={name}
             onChange={e => setName(e.target.value)}
             required
@@ -66,14 +66,14 @@ export default function Contact() {
           <input
             type="email"
             placeholder="Your Email"
-            className="w-full rounded-lg bg-white/10 border border-indigo-200/20 px-4 py-3 text-white placeholder-indigo-200 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="w-full rounded-lg bg-white/10 border border-purple-200/20 px-4 py-3 text-white placeholder-purple-200 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-400"
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
           />
           <textarea
             placeholder="Your Message"
-            className="w-full rounded-lg bg-white/10 border border-indigo-200/20 px-4 py-3 text-white placeholder-indigo-200 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="w-full rounded-lg bg-white/10 border border-purple-200/20 px-4 py-3 text-white placeholder-purple-200 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-400"
             rows={5}
             value={message}
             onChange={e => setMessage(e.target.value)}

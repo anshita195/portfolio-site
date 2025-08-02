@@ -105,7 +105,7 @@ export default function Skills() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="rounded-2xl bg-white/10 backdrop-blur-md border border-indigo-200/15 shadow-xl p-7 flex flex-col items-center hover:scale-[1.025] transition-transform"
+                             className="rounded-2xl bg-white/10 backdrop-blur-md border border-purple-200/15 shadow-xl p-7 flex flex-col items-center hover:scale-[1.025] transition-transform"
             >
               <div className="flex flex-col items-center w-full mb-4">
                 <h4 className="text-purple-200 text-xl font-bold mb-1 tracking-wide relative">
@@ -117,7 +117,7 @@ export default function Skills() {
                 {group.items.map((skill) => (
                   <span
                     key={skill.name}
-                    className="inline-flex items-center rounded-full bg-gradient-to-r from-indigo-500/30 to-indigo-400/20 border border-indigo-200/20 px-4 py-2 text-base font-semibold text-white shadow-md backdrop-blur-sm hover:from-indigo-600/40 hover:to-indigo-500/30 hover:shadow-lg transition-all duration-200"
+                                         className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-500/30 to-purple-400/20 border border-purple-200/20 px-4 py-2 text-base font-semibold text-white shadow-md backdrop-blur-sm hover:from-purple-600/40 hover:to-purple-500/30 hover:shadow-lg transition-all duration-200"
                   >
                     {skill.name}
                   </span>

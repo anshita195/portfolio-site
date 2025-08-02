@@ -82,6 +82,28 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   View Code
                 </a>
               )}
+              {project.githubFrontend && (
+                <a
+                  href={project.githubFrontend}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300"
+                >
+                  <ArrowTopRightOnSquareIcon className="w-4 h-4 mr-2" />
+                  Frontend Code
+                </a>
+              )}
+              {project.githubBackend && (
+                <a
+                  href={project.githubBackend}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-300"
+                >
+                  <ArrowTopRightOnSquareIcon className="w-4 h-4 mr-2" />
+                  Backend Code
+                </a>
+              )}
               {project.live && (
                 <a
                   href={project.live}
