@@ -97,6 +97,22 @@ export const mlDataScienceProjects: Project[] = [
 // NLP & RAG Projects
 export const nlpRagProjects: Project[] = [
   {
+    title: 'Personal Blog Search Engine',
+    organization: 'GDSC, IIT Roorkee',
+    date: 'Jul 2025 - Aug 2025',
+    details: [
+      'Built a production-grade search engine indexing 378 personal blogs with a multi‑stage classification pipeline using Sentence Transformers and scikit‑learn achieving 85% precision.',
+      'Implemented an inverted index with LRU caching to deliver sub‑20ms search latency via a FastAPI backend, containerized with Docker and deployed with automated CI/CD.',
+      'Designed a hybrid retrieval architecture combining keyword matching and semantic similarity scoring; deployed on cloud infrastructure with observability.'
+    ],
+    tags: ['Semantic Search', 'Sentence Transformers', 'scikit‑learn', 'FastAPI', 'Inverted Index', 'LRU Cache', 'Docker', 'CI/CD', 'Hybrid Search'],
+    link: '#',
+    slug: 'personal-blog-search-engine',
+    category: 'NLP & RAG',
+    github: 'https://github.com/anshita195/search-Engine-For-Blogs-And-Articles',
+    live: 'https://search-engine-for-blogs-and-articles.onrender.com/'
+  },
+  {
     title: 'Fake News Detector',
     organization: "Makers'23, IIT Roorkee",
     date: 'Feb 2023 - Mar 2023',

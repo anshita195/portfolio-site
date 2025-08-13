@@ -39,11 +39,11 @@ const featuredProjects = [
   },
   {
     id: 2,
-    title: "Fake News Detector with RAG",
-    description: "End-to-end RAG prototype with FastAPI backend and React/TypeScript frontend for claim verification using vector search and GPT-3.5 analysis",
-    image: "/RAG.png",
-    tags: ["RAG", "FastAPI", "React/TypeScript", "OpenAI GPT-3.5"],
-    link: "/projects/fake-news-detector"
+    title: "Personal Blog Search Engine",
+    description: "Production search engine indexing 378 personal blogs with hybrid keyword + semantic retrieval; 85% precision and sub-20ms latency via FastAPI + LRU caching",
+    image: "/search.png",
+    tags: ["Semantic Search", "Sentence Transformers", "FastAPI", "LRU Cache"],
+    link: "/projects/personal-blog-search-engine"
   },
   {
     id: 3,
